@@ -8,7 +8,7 @@ from contextlib import asynccontextmanager
 import logging
 
 from ..config import settings
-from .routers import interviews, call_guides, analytics, health
+from .routers import interviews, call_guides, analytics, health, quality_dashboard
 
 # Configure logging
 logging.basicConfig(
@@ -51,6 +51,7 @@ app.include_router(health.router, prefix="/api/health", tags=["Health"])
 app.include_router(call_guides.router, prefix="/api/call-guides", tags=["Call Guides"])
 app.include_router(interviews.router, prefix="/api/interviews", tags=["Interviews"])
 app.include_router(analytics.router, prefix="/api/analytics", tags=["Analytics"])
+app.include_router(quality_dashboard.router, prefix="/api", tags=["Quality Dashboard"])
 
 
 @app.get("/")
