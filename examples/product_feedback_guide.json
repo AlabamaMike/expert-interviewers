@@ -1,0 +1,186 @@
+{
+  "name": "Product Feedback Interview",
+  "research_objective": "Understand user pain points, needs, and satisfaction with our product to inform product roadmap and improvements",
+  "target_respondent_profile": {
+    "demographics": {
+      "role": "product_user",
+      "experience_level": "intermediate"
+    },
+    "expertise_level": "user",
+    "industry": "technology"
+  },
+  "estimated_duration_minutes": 20,
+  "max_duration_minutes": 30,
+  "sections": [
+    {
+      "section_name": "Introduction and Context",
+      "objective": "Build rapport and understand the respondent's background with the product",
+      "order": 0,
+      "questions": [
+        {
+          "text": "Can you tell me about your role and how you currently use our product?",
+          "type": "open",
+          "required": true,
+          "max_follow_ups": 2,
+          "time_allocation": 120,
+          "follow_up_triggers": [
+            {
+              "condition": "vague_response",
+              "action": "drill_deeper",
+              "priority": 1,
+              "template": "Can you give me a specific example of how you use it?"
+            }
+          ]
+        },
+        {
+          "text": "How long have you been using our product?",
+          "type": "open",
+          "required": true,
+          "max_follow_ups": 1,
+          "time_allocation": 60
+        }
+      ]
+    },
+    {
+      "section_name": "Pain Points and Challenges",
+      "objective": "Identify specific problems and frustrations users experience",
+      "order": 1,
+      "questions": [
+        {
+          "text": "What are the biggest challenges you face when using our product?",
+          "type": "open",
+          "required": true,
+          "max_follow_ups": 3,
+          "time_allocation": 180,
+          "follow_up_triggers": [
+            {
+              "condition": "detailed",
+              "action": "probe",
+              "priority": 2,
+              "template": "That sounds frustrating. Can you walk me through what happens?"
+            },
+            {
+              "condition": "multiple issues",
+              "action": "clarify",
+              "priority": 1,
+              "template": "Which of those issues impacts you most frequently?"
+            }
+          ]
+        },
+        {
+          "text": "Can you describe a recent time when the product didn't work the way you expected?",
+          "type": "open",
+          "required": false,
+          "max_follow_ups": 2,
+          "time_allocation": 120,
+          "follow_up_triggers": [
+            {
+              "condition": "vague",
+              "action": "example",
+              "priority": 1,
+              "template": "What specifically happened in that situation?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_name": "Needs and Desires",
+      "objective": "Understand what users want and need from the product",
+      "order": 2,
+      "questions": [
+        {
+          "text": "What features or capabilities do you wish our product had?",
+          "type": "open",
+          "required": true,
+          "max_follow_ups": 2,
+          "time_allocation": 150,
+          "follow_up_triggers": [
+            {
+              "condition": "enthusiasm",
+              "action": "probe",
+              "priority": 2,
+              "template": "That sounds interesting! Tell me more about why that would be valuable to you."
+            }
+          ]
+        },
+        {
+          "text": "If you could change one thing about the product, what would it be?",
+          "type": "open",
+          "required": true,
+          "max_follow_ups": 2,
+          "time_allocation": 120
+        }
+      ]
+    },
+    {
+      "section_name": "Comparative Insights",
+      "objective": "Understand how our product compares to alternatives",
+      "order": 3,
+      "questions": [
+        {
+          "text": "What other tools or solutions have you tried for similar needs?",
+          "type": "open",
+          "required": false,
+          "max_follow_ups": 2,
+          "time_allocation": 120,
+          "follow_up_triggers": [
+            {
+              "condition": "mentions competitor",
+              "action": "compare",
+              "priority": 2,
+              "template": "How does our product compare to that solution?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_name": "Overall Satisfaction",
+      "objective": "Gauge overall satisfaction and likelihood to continue using",
+      "order": 4,
+      "questions": [
+        {
+          "text": "On a scale of 1 to 10, how likely are you to recommend our product to a colleague?",
+          "type": "scale",
+          "required": true,
+          "max_follow_ups": 2,
+          "time_allocation": 90,
+          "follow_up_triggers": [
+            {
+              "condition": "low score",
+              "action": "probe",
+              "priority": 3,
+              "template": "What would need to change for you to give us a higher score?"
+            },
+            {
+              "condition": "high score",
+              "action": "probe",
+              "priority": 2,
+              "template": "What do you value most about the product?"
+            }
+          ]
+        },
+        {
+          "text": "What keeps you using our product instead of alternatives?",
+          "type": "open",
+          "required": true,
+          "max_follow_ups": 1,
+          "time_allocation": 90
+        }
+      ]
+    }
+  ],
+  "adaptive_rules": {
+    "interest_signals": ["enthusiasm", "frustration", "confusion"],
+    "branching_logic": [],
+    "skip_conditions": {},
+    "complexity_adaptation": true
+  },
+  "voice_profile": {
+    "speaking_rate": 150,
+    "pitch_variation": "moderate",
+    "energy_level": "professional",
+    "accent": "neutral"
+  }
+}
