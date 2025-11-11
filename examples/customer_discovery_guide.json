@@ -1,0 +1,117 @@
+{
+  "name": "Customer Discovery Interview",
+  "research_objective": "Validate problem-solution fit and understand customer needs for a new product concept",
+  "target_respondent_profile": {
+    "demographics": {
+      "role": "target_customer",
+      "company_size": "SMB"
+    },
+    "expertise_level": "practitioner"
+  },
+  "estimated_duration_minutes": 30,
+  "max_duration_minutes": 45,
+  "sections": [
+    {
+      "section_name": "Current Workflow",
+      "objective": "Understand current processes and pain points",
+      "order": 0,
+      "questions": [
+        {
+          "text": "Walk me through how you currently handle [specific workflow/task]?",
+          "type": "open",
+          "required": true,
+          "max_follow_ups": 3,
+          "time_allocation": 240,
+          "follow_up_triggers": [
+            {
+              "condition": "mentions manual process",
+              "action": "probe",
+              "priority": 3
+            }
+          ]
+        },
+        {
+          "text": "What tools or systems do you use for this?",
+          "type": "open",
+          "required": true,
+          "max_follow_ups": 2,
+          "time_allocation": 120
+        }
+      ]
+    },
+    {
+      "section_name": "Pain Points",
+      "objective": "Identify specific problems worth solving",
+      "order": 1,
+      "questions": [
+        {
+          "text": "What's the most frustrating part of this process?",
+          "type": "open",
+          "required": true,
+          "max_follow_ups": 3,
+          "time_allocation": 180
+        },
+        {
+          "text": "How much time do you spend on this per week?",
+          "type": "open",
+          "required": true,
+          "max_follow_ups": 1,
+          "time_allocation": 60
+        },
+        {
+          "text": "What happens when things go wrong?",
+          "type": "open",
+          "required": true,
+          "max_follow_ups": 2,
+          "time_allocation": 150
+        }
+      ]
+    },
+    {
+      "section_name": "Solution Validation",
+      "objective": "Test interest in potential solution",
+      "order": 2,
+      "questions": [
+        {
+          "text": "If there was a solution that could [proposed value proposition], how valuable would that be to you?",
+          "type": "open",
+          "required": true,
+          "max_follow_ups": 2,
+          "time_allocation": 150
+        },
+        {
+          "text": "What concerns or questions would you have about a solution like that?",
+          "type": "open",
+          "required": true,
+          "max_follow_ups": 2,
+          "time_allocation": 120
+        }
+      ]
+    },
+    {
+      "section_name": "Willingness to Pay",
+      "objective": "Understand budget and pricing expectations",
+      "order": 3,
+      "questions": [
+        {
+          "text": "What do you currently spend to solve this problem?",
+          "type": "open",
+          "required": false,
+          "max_follow_ups": 1,
+          "time_allocation": 90
+        },
+        {
+          "text": "If a solution could save you [X hours] per week, what would that be worth to you?",
+          "type": "open",
+          "required": false,
+          "max_follow_ups": 1,
+          "time_allocation": 90
+        }
+      ]
+    }
+  ],
+  "adaptive_rules": {
+    "interest_signals": ["enthusiasm", "frustration", "skepticism"],
+    "complexity_adaptation": true
+  }
+}
