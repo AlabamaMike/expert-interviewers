@@ -5,10 +5,11 @@ FastAPI application - Main API entry point
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
+from prometheus_client import make_asgi_app
 import logging
 
 from ..config import settings
-from .routers import interviews, call_guides, analytics, health
+from .routers import interviews, call_guides, analytics, health, dashboard
 
 # Configure logging
 logging.basicConfig(
@@ -51,6 +52,12 @@ app.include_router(health.router, prefix="/api/health", tags=["Health"])
 app.include_router(call_guides.router, prefix="/api/call-guides", tags=["Call Guides"])
 app.include_router(interviews.router, prefix="/api/interviews", tags=["Interviews"])
 app.include_router(analytics.router, prefix="/api/analytics", tags=["Analytics"])
+app.include_router(dashboard.router, prefix="/api/dashboard", tags=["Dashboard"])
+
+# Add Prometheus metrics endpoint
+if settings.enable_prometheus:
+    metrics_app = make_asgi_app()
+    app.mount("/metrics", metrics_app)
 
 
 @app.get("/")
